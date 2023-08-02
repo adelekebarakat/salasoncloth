@@ -1,19 +1,25 @@
 import axios from "axios";
 
 
+const API_URL = 'https://fakestoreapi.com'
+
+
 // API calls can be either GET, PUT, PATCH, POST, DELETE
 
-export const get = () =>{
-    axios.get('/user?ID=12345')
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
+export const get = async (url) => {
+    let result;
+    await axios.get(`${API_URL}/${url}`)
+    .then((response) => {
+        result = response
+        // return response
+    })
+  .catch((error) => {
+    result = error
     // handle error
-    console.log(error);
+    // console.log(error);
   })
-  .finally(function () {
+  .finally(() => {
     // always executed
   });
+  return result;
 }
