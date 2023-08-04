@@ -3,6 +3,11 @@ import { Col, Card, Button } from 'react-bootstrap'
 const ProductCard = ({ productDetail }) => {
     const {image,title, description, price, rating} = productDetail;
     let nairPrice = (productDetail) = price * 850
+    nairPrice=`₦ ${nairPrice} `
+
+   
+
+
 
        // {
     //     "id": 1,
@@ -28,9 +33,9 @@ const ProductCard = ({ productDetail }) => {
           {nairPrice}
         </Card.Text>
         <Card.Text>
-          {rating} 
+          {rating.rate} {rating.count}
         </Card.Text>
-        <Button variant="primary">Add to cart</Button>
+        <Button variant="primary" className="mx-2">Add to cart</Button>
         <Button variant="primary">View More</Button>
       </Card.Body>
     </Card>
